@@ -20,7 +20,7 @@ class driver_Class {
   inline linkedList * setNode(linkedList * temp) {
     return temp -> node;
   }
-  void driver_Class::setNumber(linkedList * node, int n, driver_Class & d1) {
+  void setNumber(linkedList * node, int n, driver_Class & d1) {
     for (int i = 1; i <= n; i++) {
       node -> node = d1.createNode(i * 12);
       node = d1.setNode(node);
