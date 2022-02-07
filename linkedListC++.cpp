@@ -2,7 +2,7 @@
 
 using namespace std;
 class linkedList {
-  public:
+  private:
     int data;
   linkedList * node;
   friend class driver_Class;
