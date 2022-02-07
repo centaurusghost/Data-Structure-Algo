@@ -5,7 +5,7 @@ class linkedList {
   public:
     int data;
   linkedList * node;
-  friend class driver;
+  friend class driver_Class;
 };
 class driver_Class {
   public:
