@@ -54,13 +54,16 @@ void DeleteSpecificNode(int data,LinkedList *start){
     tempTempStart->node=tempStart;
    // free(tempStart);
 }
-  void setNumber(LinkedList * node, int n, Driver_Class & d1) {
-    for (int i = 1; i <= n; i++) {
+   LinkedList setNumber(LinkedList* , int , Driver_Class&);
+   LinkedList *ReverseLinkedList(LinkedList *);
+
+};
+LinkedList  Driver_Class::setNumber(LinkedList *node, int n, Driver_Class &d1){
+   for (int i = 1; i <= n; i++) {
       node -> node = d1.createNode(i * 12);
       node = d1.setNode(node);
     }
   }
-};
 LinkedList * Driver_Class::createNode(int data1) {
   LinkedList * temp;
   try {
@@ -73,8 +76,20 @@ LinkedList * Driver_Class::createNode(int data1) {
       throw error;
     }
   } catch (char * err) {
-    cout << "Cannot create Node" << endl;
+    cout << "Cannot create Node: "<<err<< endl;
   }
+}
+LinkedList *Driver_Class::ReverseLinkedList(LinkedList *start){
+LinkedList *temp1, *temp2;
+temp1=temp2=NULL;
+while(start!=NULL){
+  temp2=start->node;
+  start->node=temp1;
+  temp1=start;
+  start = temp2;
+}
+start=temp1;
+ 
 }
 
 int main() {
@@ -98,4 +113,8 @@ int main() {
    d1->printList(temp);
    system("pause");
 
+  start = d1->ReverseLinkedList(start);
+  temp=start;
+  d1->printList(temp);
+system("pause");
 }
