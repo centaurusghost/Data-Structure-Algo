@@ -1,12 +1,25 @@
 #include<iostream>
 using namespace std;
+// class LinkedList{
+//     private:
+//     int data; LinkedList *node;
+//     friend class Driver_Class;
+//     public:
+//      ~LinkedList(){
+   
+//  }
+// };
+class Driver_Class{
+private:
 class LinkedList{
     private:
     int data; LinkedList *node;
     friend class Driver_Class;
+    public:
+     ~LinkedList(){
+   
+ }
 };
-class Driver_Class{
-private:
 char *err="Error\n";
 static LinkedList *start;
 public:
@@ -17,7 +30,7 @@ void ReverseLinkedList();
 void PrintListData();
 void DeleteSpecificNode();
 };
-LinkedList *Driver_Class::createNode(){
+Driver_Class::LinkedList *Driver_Class::createNode(){
 LinkedList *temp;
 temp= new LinkedList;
 temp->node=NULL;
@@ -115,7 +128,7 @@ start=temp2;
 }
 start=temp1;
 }
-LinkedList *Driver_Class::start=NULL;
+Driver_Class::LinkedList *Driver_Class::start=NULL;
 int main(){
 Driver_Class *d1;
 int *choice;
@@ -157,4 +170,6 @@ default:
     system("pause");
     system("cls");
 }
+// d1->InsertNode(5);
+// d1->InsertNode(6);
 }
