@@ -1,14 +1,5 @@
 #include<iostream>
 using namespace std;
-// class LinkedList{
-//     private:
-//     int data; LinkedList *node;
-//     friend class Driver_Class;
-//     public:
-//      ~LinkedList(){
-   
-//  }
-// };
 class Driver_Class{
 private:
 class LinkedList{
