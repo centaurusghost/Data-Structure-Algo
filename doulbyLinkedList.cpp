@@ -15,6 +15,37 @@ inline DoulbyLinkedList *CreateNode()
     temp = (DoulbyLinkedList *)(malloc(sizeof(DoulbyLinkedList)));
     return temp;
 }
+void InsertAtFirstNode(DoulbyLinkedList **start){
+    DoulbyLinkedList *temp, *p;
+    int data;
+    cout<<"Enter data"<<endl;
+    cin>>data;
+    if(*start!=NULL){
+    temp=*start;
+    p=CreateNode();
+    temp->prev=p;
+    p->next=temp;
+    *start=p;
+    p->prev=*start;
+    p->data=data;
+    cout<<"created"<<endl;
+    system("pause");
+    delete temp;
+    return;
+    }
+    
+    else{
+        cout<<"First node created"<<endl;
+        system("pause");
+        temp=CreateNode();
+        *start=temp;
+        temp->next=NULL;
+        temp->prev=*start;
+        temp->data=data;
+       return; 
+    }
+   
+}
 void InsertNode(DoulbyLinkedList **start)
 {
     int data;
@@ -100,7 +131,6 @@ if(*start!=NULL & temp1->next!=NULL){
      delete temp1;
      return;
     }
-
 }
 else {
 if(temp1->next==NULL){
@@ -109,9 +139,8 @@ delete temp1;
 return;
 }
 }
-
-
 }
+
     
 int main()
 {
@@ -122,6 +151,7 @@ int main()
         cout << "1.Insert Node" << endl;
         cout << "2.Print List" << endl;
         cout << "3.Delete Specific Data" << endl;
+        cout<<"4.Insert At first Node"<<endl;
         cin >> choice;
         switch (choice)
         {
@@ -139,6 +169,10 @@ int main()
         case 3:
         {
             DeleteSpecificNode(&start);
+        }
+        case 4:{
+       InsertAtFirstNode(&start);
+            break;
         }
         }
         system("cls");
