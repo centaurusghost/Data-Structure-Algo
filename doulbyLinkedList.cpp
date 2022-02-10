@@ -30,7 +30,7 @@ void InsertAtFirstNode(DoulbyLinkedList **start){
     p->data=data;
     cout<<"created"<<endl;
     system("pause");
-    delete temp;
+   // delete temp;
     return;
     }
     
