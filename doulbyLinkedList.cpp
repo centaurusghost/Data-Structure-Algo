@@ -106,7 +106,7 @@ if(*start==NULL){
     return;
 }
 if(*start!=NULL & temp1->next!=NULL){
-    while(1){
+    while(temp1->next!=NULL){
         if(temp1->data==data){
             cout<<"Data found"<<temp1->data<<endl;
             system("pause");
@@ -141,7 +141,54 @@ return;
 }
 }
 
-    
+void SearchAndEditData(DoulbyLinkedList **start){
+DoulbyLinkedList *temp;
+int data;
+cout<<"Enter data to search and edit"<<endl;
+cin>>data;
+temp=*start;
+while(temp!=NULL){
+    if(temp->data==data){
+        break;
+    }
+    temp=temp->next;
+}
+if(temp->data==data){
+    cout<<"Data found"<<endl;
+    cout<<"Enter new data:";
+    cin>>data;
+    temp->data=data;
+    return;
+}
+else{
+    cout<<"The specific data not found"<<endl;
+    system("pause");
+    return;
+}
+ }
+ void DeleteLastLeaf(DoulbyLinkedList **start){
+DoulbyLinkedList *temp;
+temp=*start;
+if(temp!=NULL){
+    if(temp->next!=NULL){
+while(temp->next!=NULL){
+temp=temp->next;
+}
+temp->prev->next=NULL;
+delete temp;
+return;
+    }
+    else{
+        *start=NULL;
+        delete temp;
+    }
+
+}
+else{
+    return;
+}
+
+ }   
 int main()
 {
     DoulbyLinkedList *start = NULL;
@@ -152,6 +199,9 @@ int main()
         cout << "2.Print List" << endl;
         cout << "3.Delete Specific Data" << endl;
         cout<<"4.Insert At first Node"<<endl;
+        cout<<"5. Search and edit data"<<endl;
+        cout<<"6.Delete At End"<<endl;
+
         cin >> choice;
         switch (choice)
         {
@@ -173,6 +223,12 @@ int main()
         case 4:{
        InsertAtFirstNode(&start);
             break;
+        }
+        case 5:{
+            SearchAndEditData(&start);
+        }
+        case 6:{
+            DeleteLastLeaf(&start);
         }
         }
         system("cls");
